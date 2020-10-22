@@ -7,31 +7,40 @@
 </p>
 
 <!-- markdownlint-disable -->
-## Current Situation
+## Roadmap
 <!-- markdownlint-restore -->
 
-As of 13/10/2020, nhclientai is stated for an alpha¹ release by **October 31st, 2020**.
+### Alpha Release - "Example Project"
 
-<details>
-  <summary>
-    Further Reading
-  </summary>
-  ¹ version scheming conventions are not traditional in a sense that releases
-  are incrementally named after their respective greek name (Alpha, Beta, Gamma,
-  etc)
-</details>
+Goals
 
-### Planned Features (nhclientai Alpha)
+- Showcase nhclientai proof of concept
+- Create foundations for features
+
+Feature Set
 
 - Homepage
-- Query via Search
-- Inbuilt Doujinshi Viewer
+- Input Registration
+
+Slated Release: `31/10/2020`
+
+### Beta Release - "Hardening Concrete"
+
+Goals
+
+- Strengthen laid foundations from Alpha
+
+Feature Set
+
+- Search
+- Doujinshi Reader
+
+Slated Release: `TBC`
 
 ## System and Python Support
 
-As of nhclientai Pre-Alpha, Linux is the only supported platform² and the
-minimum Python version required is `3.7`³. A SIXEL-supported terminal is
-required to run
+As of nhclientai Pre-Alpha, Linux is the only supported platform² and the minimum
+Python version required is `3.7`³. A SIXEL-supported terminal is required to run
 nhclientai properly.
 
 <details>
@@ -44,9 +53,11 @@ nhclientai properly.
   for Linux will work nicely, also as it is primarily what is used to develop
   nhclientai.
 
+  ---
+
   ³ Python 3.7 being the minimum is due to
   [hentai](https://github.com/hentai-chan/hentai) requiring the dataclass
-  module, which was shipped only with Python 3.7 and onwards Another reason is
+  module, which was shipped only with Python 3.7 and onwards. Another reason is
   that PyPy is what I primarily use in Python development, which has now Python
   3.7 support.
 </details>
