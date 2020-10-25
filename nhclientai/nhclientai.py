@@ -21,13 +21,17 @@ import os
 # Global Variables
 userpath_map = {
     'darwin': f'{Path.home()}/Library/Application Support/nhclientai',
-    'linux': f'{Path.home()}/.config/nhclientai',
+    'linux': f'{Path.home()}/.nhclientai',
     'win32': f'{Path.home()}/AppData/Roaming/nhclientai'
 }
 
 nhcli_scriptpath = Path(__file__).parent.absolute()
-nhcli_userpath = Path(os.getenv(key='XDG_CONFIG_HOME', default=userpath_map[sys.platform]))
+nhcli_userpath = Path(userpath_map[sys.platform])
 nhcli_configpath = nhcli_userpath.joinpath('config.toml')
+
+if nhcli_userpath.is_dir() is False:
+    logging.info(f'Made directory {nhcli_userpath} due to its nonexistance.')
+    os.mkdir(nhcli_userpath)
 
 # Logging Initialization
 logging.basicConfig(format='[%(levelname)s] (%(module)s:%(funcName)s:%(lineno)d) %(message)s',
@@ -36,10 +40,6 @@ logging.basicConfig(format='[%(levelname)s] (%(module)s:%(funcName)s:%(lineno)d)
 # Input Initialization
 input_handler = Input()
 
-# Checks
-if nhcli_userpath.is_dir() is False:
-    logging.info(f'Made directory {nhcli_userpath} due to its nonexistance.')
-    os.mkdir(nhcli_userpath)
 
 class nhclientai:
     class Signals:
@@ -80,10 +80,11 @@ class nhclientai:
                 return int(result)
 
             try:
-                input('Please make the current terminal window fullscreen before proceeding.')
+                print('Please make the current terminal window fullscreen before proceeding.')
+                input('Press ENTER to continue.')
 
-                display_width = ask('Please input the width of your monitor in pixels. (e.g. 1920)')
-                display_height = ask('Please input the width of your height in pixels. (e.g. 1080)')
+                display_width = ask('Please input the width of your monitor in pixels. (e.g. 1920) > ')
+                display_height = ask('Please input the width of your height in pixels. (e.g. 1080) > ')
 
                 columns, lines = os.get_terminal_size()  # columns = width, lines = height
 
