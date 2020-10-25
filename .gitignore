@@ -5,5 +5,10 @@
 /tests/
 /.venv/
 
+# Python
+/nhclientai/__pycache__/
+/tests/__pycache__/
+/__pycache__/
+
 # Waiting
 /rosetta/
